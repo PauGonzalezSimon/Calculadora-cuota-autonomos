@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Cuota Autónomos 2026 | Tramos, IRPF y Cuota Cero</title>
+    <meta name="description"
+        content="Calcula tu cuota de autónomos de 2026 con el nuevo sistema de ingresos reales. Descubre si tienes Cuota Cero, tu IRPF exacto y tu sueldo neto real.">
+
+    <!-- Script de Gestión del Consentimiento de Cookies (CMP) compatible con el Marco de Transparencia y Consentimiento (TCF) v2.2 de IAB Europe -->
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-XXXXXXXXXXXXXXXX/pubinfo.js"
+        data-cfasync="false"></script>
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #cbd5e1;
+            --success: #16a34a;
+            --success-bg: #dcfce7;
+            --radius: 0.75rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted);
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Grid & Forms */
+        .grid {
+            display: grid;
+            gap: 1.2rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media(min-width:640px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .col-full {
+            grid-column: 1/-1;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: .5rem;
+            font-size: .95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: .75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: .5rem;
+            font-size: 1rem;
+            background: #fff;
+            color: var(--text);
+            appearance: none;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, .15);
+        }
+
+        select.form-control {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .8rem;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: .5rem;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        #ccaa_container {
+            display: none;
+        }
+
+        #ccaa_container.active {
+            display: block;
+            animation: fadeIn .3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Alerta Pérdidas */
+        .alert-danger {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: .5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: none;
+            animation: fadeIn .3s ease;
+        }
+
+        /* Results */
+        .results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        @media(min-width:640px) {
+            .results {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .res-box {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: .5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .res-box.highlight {
+            background: var(--success-bg);
+            border-color: var(--success);
+            grid-column: 1/-1;
+        }
+
+        @media(min-width:640px) {
+            .res-box.highlight {
+                grid-column: span 1;
+            }
+        }
+
+        .res-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            color: var(--muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: .4rem;
+        }
+
+        .res-val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .res-box.highlight .res-val {
+            color: var(--success);
+            font-size: 1.75rem;
+        }
+
+        /* Tooltips */
+        .tooltip-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--muted);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 6px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: max-content;
+            max-width: 200px;
+            background-color: var(--text);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 10;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 0.75rem;
+            font-weight: normal;
+            text-transform: none;
+            line-height: 1.4;
+        }
+
+        .tooltip-icon:hover .tooltip-text,
+        .tooltip-icon:active .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text) transparent transparent transparent;
+        }
+
+        /* PDF Button */
+        .btn-print-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-print {
+            background: var(--text);
+            color: white;
+            border: none;
+            padding: .75rem 1.5rem;
+            border-radius: .5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            transition: background .2s;
+        }
+
+        .btn-print:hover {
+            background: #334155;
+        }
+
+        /* Ad Slots (Web Vitals Optimization CLS=0) */
+        .ad-slot {
+            width: 100%;
+            min-height: 250px;
+            background-color: #f8f9fa;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: .875rem;
+            border: 2px dashed #e5e7eb;
+            border-radius: var(--radius);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 640px;
+            text-align: left;
+            background: var(--card);
+        }
+
+        th,
+        td {
+            padding: .75rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #f8fafc;
+            font-size: .85rem;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* FAQs */
+        details {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: .75rem;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        .faq-body {
+            padding: 0 1.25rem 1.25rem;
+            color: var(--muted);
+        }
+
+        /* Print Styles */
+        .print-summary {
+            display: none;
+            margin-bottom: 2rem;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .print-summary p {
+            margin-bottom: .5rem;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .print-summary strong {
+            color: var(--text);
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 1rem;
+                padding: 1.5rem;
+            }
+
+            .print-summary {
+                display: block;
+            }
+
+            .results {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                border-top: none;
+                padding-top: 0;
+            }
+
+            .res-box {
+                border: 1px solid #cbd5e1;
+                background: #fff;
+            }
+
+            .res-box.highlight {
+                color: inherit;
+            }
+
+            .res-box.highlight .res-val {
+                color: inherit;
+            }
+
+            .tooltip-icon {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Schema Markup JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Calculadora Cuota Autónomos 2026",
+          "description": "Calcula tu cuota de autónomos de 2026 con el nuevo sistema de ingresos reales. Descubre si tienes Cuota Cero, tu IRPF exacto y tu sueldo neto real.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué es la Tarifa Plana en 2026 y la Cuota Cero?",
+              "acceptedAnswer": {"@type": "Answer", "text": "La Tarifa Plana es una cuota estatal reducida de 80€ mensuales para nuevos autónomos durante su primer año de actividad. La 'Cuota Cero' ocurre cuando ciertas Comunidades Autónomas bonifican el 100% de este importe, resultando en un coste real de 0€ para el emprendedor."}
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cómo funciona la regularización de cuotas a final de año?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Al año siguiente, cuando presentas la declaración de la RENTA, la Seguridad Social cruza datos con Hacienda. Si cotizaste mensualmente por un tramo inferior a tus ingresos o beneficios reales, te exigirán abonar la diferencia. Si cotizaste de más, te devolverán de oficio el exceso abonado."}
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuándo puedo cambiar de tramo de cotización?",
+              "acceptedAnswer": {"@type": "Answer", "text": "La Tesorería habilita hasta 6 plazos anuales (cada dos meses) para cambiar voluntariamente la base de cotización a través del portal electrónico Importass, permitiéndote adaptar la cuota a tus ingresos en tiempo real."}
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Calculadora de Cuota de Autónomos 2026 (Ingresos Reales)</h1>
+        </header>
+
+        <main class="card">
+            <!-- Resumen solo visible al imprimir en PDF -->
+            <div class="print-summary" id="print-summary">
+                <h2 style="margin-top:0;margin-bottom:1rem;font-size:1.2rem;">Datos Computados:</h2>
+                <p><strong>Ingresos Brutos:</strong> <span id="print-ing">0,00 €</span></p>
+                <p><strong>Gastos Deducibles:</strong> <span id="print-gas">0,00 €</span></p>
+                <p><strong>Tipo Autónomo:</strong> <span id="print-tipo">-</span></p>
+                <p><strong>Cotización Elegida:</strong> <span id="print-coti">-</span></p>
+                <p><strong>Condición Especial:</strong> <span id="print-espNinguna">Ninguna</span></p>
+            </div>
+
+            <div id="aviso-perdidas" class="alert-danger no-print">
+                ⚠️ Estás en pérdidas operativas o beneficio nulo. Te corresponde legalmente la base mínima de cotización
+                (Tramo 1).
+            </div>
+
+            <form id="calc-form" class="no-print" onsubmit="event.preventDefault()">
+                <div class="grid">
+                    <!-- Inputs Base -->
+                    <div>
+                        <label for="ingresos">Ingresos Mensuales Brutos (€)</label>
+                        <input type="number" id="ingresos" name="ingresos" class="form-control" placeholder="Ej: 3000"
+                            step="0.01" min="0" oninput="calcularTodo()">
+                    </div>
+                    <div>
+                        <label for="gastos">Gastos Mensuales Deducibles (€)</label>
+                        <input type="number" id="gastos" name="gastos" class="form-control" placeholder="Ej: 500"
+                            step="0.01" min="0" oninput="calcularTodo()">
+                    </div>
+
+                    <!-- Opciones Fiscales -->
+                    <div>
+                        <label for="tipo_autonomo">Tipo de Autónomo</label>
+                        <select id="tipo_autonomo" name="tipo" class="form-control" onchange="calcularTodo()">
+                            <option value="fisica">Persona Física (Deducción 7%)</option>
+                            <option value="societario">Societario (Deducción 3%)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cotizacion">Base de Cotización</label>
+                        <select id="cotizacion" name="base" class="form-control" onchange="calcularTodo()">
+                            <option value="minima">Cotizar por Base Mínima</option>
+                            <option value="maxima">Cotizar por Base Máxima</option>
+                        </select>
+                    </div>
+
+                    <!-- Tarifa Plana / Cuota Cero -->
+                    <div class="col-full">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="primer_ano" name="nuevo" onchange="toggleCcaa()">
+                            ¿Es tu primer año? (Tarifa Plana 80€ / Cuota Cero)
+                        </label>
+                    </div>
+
+                    <!-- CCAA Selector (Oculto) -->
+                    <div class="col-full" id="ccaa_container">
+                        <label for="ccaa">Comunidad Autónoma (Aplica bonificación Cuota Cero)</label>
+                        <select id="ccaa" name="ccaa" class="form-control" onchange="calcularTodo()">
+                            <option value="otra">Selecciona tu Comunidad Autónoma</option>
+                            <option value="andalucia">Andalucía</option>
+                            <option value="aragon">Aragón</option>
+                            <option value="asturias">Asturias</option>
+                            <option value="baleares">Baleares</option>
+                            <option value="canarias">Canarias</option>
+                            <option value="cantabria">Cantabria</option>
+                            <option value="castillalamancha">Castilla-La Mancha</option>
+                            <option value="castillayleon">Castilla y León</option>
+                            <option value="cataluna">Cataluña</option>
+                            <option value="valencia">Comunidad Valenciana</option>
+                            <option value="extremadura">Extremadura</option>
+                            <option value="galicia">Galicia</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="murcia">Murcia</option>
+                            <option value="navarra">Navarra</option>
+                            <option value="paisvasco">País Vasco</option>
+                            <option value="larioja">La Rioja</option>
+                            <option value="ceuta">Ceuta</option>
+                            <option value="melilla">Melilla</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Panel de Resultados Dinámicos -->
+            <div class="results">
+                <div class="res-box">
+                    <span class="res-label">Base de Cotización</span>
+                    <div class="res-val" id="res-base">0,00 €</div>
+                </div>
+                <div class="res-box">
+                    <span class="res-label">
+                        Cuota Seg. Social
+                        <div class="tooltip-icon">?<span class="tooltip-text" id="tt-cuota">Cálculo de cuota
+                                general</span></div>
+                    </span>
+                    <div class="res-val" id="res-cuota">0,00 €</div>
+                </div>
+                <div class="res-box">
+                    <span class="res-label">
+                        Retención IRPF
+                        <div class="tooltip-icon">?<span class="tooltip-text" id="tt-irpf">Retención IRPF
+                                aplicable</span></div>
+                    </span>
+                    <div class="res-val" id="res-irpf">0,00 €</div>
+                </div>
+                <div class="res-box highlight">
+                    <span class="res-label">Sueldo Neto Real</span>
+                    <div class="res-val" id="res-sueldo">0,00 €</div>
+                </div>
+            </div>
+
+            <div class="btn-print-container no-print">
+                <button class="btn-print" onclick="window.print()">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+                        </path>
+                    </svg>
+                    Guardar Informe en PDF
+                </button>
+            </div>
+        </main>
+
+        <!-- Ad Slot 1: Bajo los resultados -->
+        <div class="ad-slot no-print">
+            Banner AdSense - Slot 1<br>
+            <small style="font-weight:normal;">[Espacio reservado CLS=0]</small>
+        </div>
+
+        <!-- Contenido SEO Optimizado -->
+        <section class="card no-print">
+            <h2>El nuevo sistema de cotización por Ingresos Reales y Deducciones en 2026</h2>
+            <p>A partir del año 2026, el sistema de cotización para los trabajadores por cuenta propia en España se
+                fundamenta estrictamente en los rendimientos netos reales de su actividad, eliminando de forma
+                definitiva la libre elección de bases que operaba libremente en el pasado. Este nuevo paradigma obliga
+                al trabajador a estimar sus beneficios antes de empezar el año fiscal o mes a mes, y acomodar de forma
+                analítica dichos importes en uno de los 15 tramos oficiales que la Tesorería General de la Seguridad
+                Social tiene estipulados.</p>
+
+            <p>El cálculo exacto de tu cuota de cotización comienza con un paso esencial: determinar correctamente tu
+                <strong>Rendimiento Neto Computable</strong>. Para fijar esta cifra, el primer escalón es calcular tu
+                <em>Rendimiento Previo</em>, la cual es la diferencia íntegra de restar a tus ingresos brutos mensuales
+                tus gastos mensuales directamente deducibles. Una vez se ha computado este salto, la ley fiscal te
+                permite restar de forma automática un porcentaje por deducción genérica o "gastos de difícil
+                justificación", un balón de oxígeno que no precisa entregarse la factura en Hacienda. Para quienes
+                operen bajo la denominación Persona Física, esta deducción se fija legalmente en un <strong>7%</strong>.
+                En el caso de estar estipulado bajo el registro de Autónomos Societarios, dicha deducción se fija en la
+                minoría de un <strong>3%</strong>.
+            </p>
+
+            <p>A las obligaciones de pago no solo aplica la Seguridad Social, también influye directamente el anticipo
+                del <strong>IRPF</strong> mensual y posibles bonificaciones de iniciación. En el inicio legal societario
+                o particular, si te enmarcas en tu primer año consecutivo de alta, se aplica una Tarifa Plana estatal
+                generalizada de 80€, e incluso un IRPF reducido del 7%. Más importante aún, promoviendo de forma
+                exhaustiva el emprendimiento, bastantes Comunidades Autónomas asumen estos 80€ de pago del Estado
+                absorbiendo el coste y entregándoselo al trabajador bajo el esquema denominado popularmente
+                <strong>"Cuota Cero"</strong>. Es por esto que, si indicaste en la calculadora que tu residencia fiscal
+                activa es en Madrid, Andalucía, Murcia, Baleares, La Rioja, Aragón o Canarias, advertirás que la Cuota
+                SS de facturador refleja automáticamente 0,00€ en tu etapa inicial.
+            </p>
+
+            <h2>Tablas Oficiales y Tramos de Cotización 2026</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tramo SS</th>
+                            <th>Rendimiento Neto Computable (€/m)</th>
+                            <th>Base Mínima - Máxima</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-tramos-body">
+                        <!-- Insertado por JavaScript para centralizar la lógica -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Ad Slot 2: Intercalado previo a las FAQs -->
+        <div class="ad-slot no-print">
+            Banner AdSense - Slot 2<br>
+            <small style="font-weight:normal;">[Espacio reservado CLS=0]</small>
+        </div>
+
+        <!-- Preguntas Frecuentes FAQs -->
+        <section class="card no-print">
+            <h2 style="margin-top:0;">Preguntas Frecuentes (FAQ)</h2>
+
+            <details>
+                <summary>¿Qué es la Tarifa Plana en 2026 y la Cuota Cero?</summary>
+                <div class="faq-body">
+                    <p>La Tarifa Plana es una cuota estatal reducida de 80€ mensuales durante tu primer año de actividad
+                        por cuenta propia (pudiendo prorrogarse en determinados supuestos de bajos ingresos). Además,
+                        comunidades como Madrid, Andalucía o La Rioja asumen su coste directamente como subvención,
+                        bonificando este importe al 100% y ofreciendo la llamada "Cuota Cero" para nuevos emprendedores
+                        del territorio.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Cómo funciona la regularización de cuotas a final de año?</summary>
+                <div class="faq-body">
+                    <p>Al cruzar datos fácticos con Hacienda a la hora de procesar tu declaración de la RENTA anual, la
+                        Seguridad Social comprobará si la cotización que transferiste fue acorde a tus ganancias finales
+                        (las declaradas en el modelo D-100). Si cotizaste mensualmente por un tramo inferior a tus
+                        beneficios reales resultantes de la actividad, deberás pagar la diferencia en forma de
+                        liquidación. Si pagaste de más apostando al alza, te devolverán de oficio el importe que excede
+                        y sobrante.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Cuándo puedo cambiar de tramo de cotización?</summary>
+                <div class="faq-body">
+                    <p>La normativa permite modificar o migrar hasta en 6 ocasiones tu base al año fiscal mediante el
+                        registro digital de la plataforma Importass del gobierno. Esto es vital para ir regulando e
+                        igualando progresivamente tu cuota de pago exigible a la realidad de las subidas y abruptas
+                        caídas características de la facturación en un negocio particular.</p>
+                </div>
+            </details>
+        </section>
+    </div>
+
+    <script>
+        // Motor Legal: Array oficial de 15 Tramos para 2026
+        const TRAMOS_2026 = [
+            { id: 1, min: 0, max: 670, baseMin: 735.29, baseMax: 816.98 },
+            { id: 2, min: 670.01, max: 900, baseMin: 816.98, baseMax: 900 },
+            { id: 3, min: 900.01, max: 1166.70, baseMin: 872.55, baseMax: 1166.70 },
+            { id: 4, min: 1166.71, max: 1300, baseMin: 955, baseMax: 1300 },
+            { id: 5, min: 1300.01, max: 1500, baseMin: 1045, baseMax: 1500 },
+            { id: 6, min: 1500.01, max: 1700, baseMin: 1060, baseMax: 1700 },
+            { id: 7, min: 1700.01, max: 1850, baseMin: 1145, baseMax: 1850 },
+            { id: 8, min: 1850.01, max: 2030, baseMin: 1210, baseMax: 2030 },
+            { id: 9, min: 2030.01, max: 2330, baseMin: 1250, baseMax: 2330 },
+            { id: 10, min: 2330.01, max: 2760, baseMin: 1300, baseMax: 2760 },
+            { id: 11, min: 2760.01, max: 3190, baseMin: 1400, baseMax: 3190 },
+            { id: 12, min: 3190.01, max: 3620, baseMin: 1500, baseMax: 3620 },
+            { id: 13, min: 3620.01, max: 4050, baseMin: 1600, baseMax: 4050 },
+            { id: 14, min: 4050.01, max: 6000, baseMin: 1750, baseMax: 4720.50 },
+            { id: 15, min: 6000.01, max: Infinity, baseMin: 2000, baseMax: 4720.50 }
+        ];
+
+        const formatoEuro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+
+        /** Cargar parámetros de URL */
+        function cargarParametrosURL() {
+            const params = new URLSearchParams(window.location.search);
+
+            if (params.has('ingresos')) document.getElementById('ingresos').value = params.get('ingresos');
+            if (params.has('gastos')) document.getElementById('gastos').value = params.get('gastos');
+            if (params.has('tipo')) document.getElementById('tipo_autonomo').value = params.get('tipo');
+            if (params.has('base')) document.getElementById('cotizacion').value = params.get('base');
+
+            if (params.get('nuevo') === 'true') {
+                document.getElementById('primer_ano').checked = true;
+                document.getElementById('ccaa_container').classList.add('active');
+                if (params.has('ccaa')) document.getElementById('ccaa').value = params.get('ccaa');
+            }
+        }
+
+        /** Actualizar URL dinámicamente */
+        function actualizarURL(values) {
+            const params = new URLSearchParams();
+            if (values.ingresos) params.set('ingresos', values.ingresos);
+            if (values.gastos) params.set('gastos', values.gastos);
+            params.set('tipo', values.tipoAuto);
+            params.set('base', values.eleccionBase);
+            if (values.isPrimerAno) {
+                params.set('nuevo', 'true');
+                if (values.ccaa !== 'otra') params.set('ccaa', values.ccaa);
+            }
+
+            const newRelativePathQuery = window.location.pathname + '?' + params.toString();
+            window.history.replaceState(null, '', newRelativePathQuery);
+        }
+
+        /** Control del desplegable CCAA */
+        function toggleCcaa() {
+            const isPrimerAno = document.getElementById('primer_ano').checked;
+            const containerCCAA = document.getElementById('ccaa_container');
+
+            if (isPrimerAno) {
+                containerCCAA.classList.add('active');
+            } else {
+                containerCCAA.classList.remove('active');
+                document.getElementById('ccaa').value = 'otra';
+            }
+            calcularTodo();
+        }
+
+        /** 
+         * Motor de Cálculo Principal 
+         */
+        function calcularTodo() {
+            const valIngresos = document.getElementById('ingresos').value;
+            const valGastos = document.getElementById('gastos').value;
+
+            const ingresos = parseFloat(valIngresos) || 0;
+            const gastos = parseFloat(valGastos) || 0;
+            const isPrimerAno = document.getElementById('primer_ano').checked;
+            const tipoAuto = document.getElementById('tipo_autonomo').value;
+            const eleccionBase = document.getElementById('cotizacion').value;
+            const ccaa = document.getElementById('ccaa').value;
+
+            // Limpieza pasiva visual si no hay inputs
+            if (valIngresos === "" && valGastos === "" && !isPrimerAno) {
+                actualizarUI(0, 0, 0, 0);
+                document.getElementById('aviso-perdidas').style.display = 'none';
+                return;
+            }
+
+            // Sincronizar URL state
+            actualizarURL({ ingresos: valIngresos, gastos: valGastos, tipoAuto, eleccionBase, isPrimerAno, ccaa });
+
+            // A. CONTROL DE PÉRDIDAS
+            let rendimientoPrevio = ingresos - gastos;
+            let rendimientoNetoComputable = 0;
+            const avisoPerdidas = document.getElementById('aviso-perdidas');
+
+            if (rendimientoPrevio <= 0 && (ingresos > 0 || gastos > 0)) {
+                // Entramos en pérdidas. Fuerza a Tramo 1.
+                avisoPerdidas.style.display = 'block';
+                rendimientoPrevio = 0;
+                rendimientoNetoComputable = 0;
+            } else {
+                avisoPerdidas.style.display = 'none';
+                // Cálculo normal
+                const porcentajeDeduccion = tipoAuto === 'fisica' ? 0.07 : 0.03;
+                rendimientoNetoComputable = rendimientoPrevio - (rendimientoPrevio * porcentajeDeduccion);
+            }
+
+            // B. CÁLCULO DE IRPF
+            const porcentajeIrpf = isPrimerAno ? 0.07 : 0.15;
+            const retencionIrpf = ingresos * porcentajeIrpf;
+
+            // Búsqueda de Tramo en el array
+            let tramoAsignado = TRAMOS_2026[0];
+            for (const t of TRAMOS_2026) {
+                if (rendimientoNetoComputable >= t.min && rendimientoNetoComputable <= t.max) {
+                    tramoAsignado = t;
+                    break;
+                }
+            }
+
+            // Cálculo de Cuota SS y Base
+            let baseFinal = 0;
+            let cuotaSS = 0;
+            let msgCuotaTT = ""; // Tooltip mensaje
+
+            if (isPrimerAno) {
+                baseFinal = 950.98;
+                const ccCero = ["madrid", "andalucia", "murcia", "baleares", "larioja", "aragon", "canarias"];
+
+                if (ccCero.includes(ccaa)) {
+                    cuotaSS = 0.00;
+                    msgCuotaTT = "Cuota Cero del 100% bonificada por tu CCAA.";
+                } else {
+                    cuotaSS = 80.00;
+                    msgCuotaTT = "Tarifa Plana estatal general exigida para primeros 12 meses.";
+                }
+            } else {
+                baseFinal = eleccionBase === 'minima' ? tramoAsignado.baseMin : tramoAsignado.baseMax;
+                cuotaSS = baseFinal * 0.313; // 31.3% de cotización
+                msgCuotaTT = `Calculado al 31.3% oficial sobre una base de ${baseFinal.toLocaleString('es-ES')}€.`;
+            }
+
+            // Sueldo Neto Real
+            const sueldoNetoReal = ingresos - gastos - cuotaSS - retencionIrpf;
+
+            // Actualizar UI
+            actualizarUI(baseFinal, cuotaSS, retencionIrpf, sueldoNetoReal);
+
+            // Actualizar Textos y Tooltips
+            document.getElementById('tt-irpf').innerText = `Calculado al ${porcentajeIrpf * 100}% de retención sobre tus ingresos brutos totales.`;
+            document.getElementById('tt-cuota').innerText = msgCuotaTT;
+
+            // Sincronizar datos para posible impresión PDF
+            document.getElementById('print-ing').innerText = formatoEuro.format(ingresos);
+            document.getElementById('print-gas').innerText = formatoEuro.format(gastos);
+            document.getElementById('print-tipo').innerText = document.getElementById('tipo_autonomo').options[document.getElementById('tipo_autonomo').selectedIndex].text;
+            document.getElementById('print-coti').innerText = document.getElementById('cotizacion').options[document.getElementById('cotizacion').selectedIndex].text;
+
+            let msgEsp = "Ninguna";
+            if (isPrimerAno) {
+                msgEsp = "Tarifa Plana activa";
+                if (ccaa !== 'otra') msgEsp += " - CCAA: " + document.getElementById('ccaa').options[document.getElementById('ccaa').selectedIndex].text;
+            }
+            document.getElementById('print-espNinguna').innerText = msgEsp;
+        }
+
+        /** Inyección reactiva al DOM */
+        function actualizarUI(base, cuota, irpf, neto) {
+            document.getElementById('res-base').innerText = formatoEuro.format(base);
+            document.getElementById('res-cuota').innerText = formatoEuro.format(cuota);
+            document.getElementById('res-irpf').innerText = formatoEuro.format(irpf);
+
+            const elementoNeto = document.getElementById('res-sueldo');
+            elementoNeto.innerText = formatoEuro.format(neto);
+
+            if (neto < 0) {
+                elementoNeto.style.color = '#dc2626';
+            } else {
+                elementoNeto.style.color = '';
+            }
+        }
+
+        /** Inicialización inicial al cargar el script */
+        window.addEventListener('DOMContentLoaded', () => {
+            let htmlTabla = '';
+            TRAMOS_2026.forEach(t => {
+                const minV = formatoEuro.format(t.min);
+                const maxV = t.max === Infinity ? 'Más de 6.000 €' : formatoEuro.format(t.max);
+                htmlTabla += `
+                <tr>
+                    <td>Tramo ${t.id}</td>
+                    <td>${minV} - ${maxV}</td>
+                    <td>${formatoEuro.format(t.baseMin)} – ${formatoEuro.format(t.baseMax)}</td>
+                </tr>
+            `;
+            });
+            document.getElementById('tabla-tramos-body').innerHTML = htmlTabla;
+
+            cargarParametrosURL();
+            calcularTodo();
+        });
+    </script>
+</body>
+
+</html>
