@@ -12,8 +12,12 @@
     <script async src="https://fundingchoicesmessages.google.com/i/pub-XXXXXXXXXXXXXXXX/pubinfo.js"
         data-cfasync="false"></script>
 
+    <!-- Favicon Corporativo -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%231e3a8a' stroke-width='2' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'></path></svg>">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800&display=swap');
 
         :root {
             --primary: #1e3a8a;
@@ -57,7 +61,8 @@
         }
 
         .site-header .logo {
-            font-size: 1.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.85rem;
             font-weight: 800;
             letter-spacing: -0.025em;
             display: flex;
@@ -352,23 +357,6 @@
         .btn-print:hover {
             background: var(--action-hover);
             transform: translateY(-1px);
-        }
-
-        /* Ad Slots (Web Vitals Optimization CLS=0) */
-        .ad-slot {
-            width: 100%;
-            min-height: 250px;
-            background-color: #f8f9fa;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9ca3af;
-            font-size: .875rem;
-            border: 2px dashed #e5e7eb;
-            border-radius: var(--radius);
-            text-align: center;
-            padding: 1rem;
         }
 
         /* Tables */
@@ -700,7 +688,7 @@
 
         <!-- Contenido SEO Nuevo Integrado en la Calculadora -->
         <section class="card no-print"
-            style="box-shadow: none; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-top: 2rem;">
+            style="box-shadow: none; border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem 2rem; margin-top: 3rem; background-color: #ffffff;">
             <h2>Guía de la Cuota de Autónomos 2026: Explicación sobre el sistema de cotización por ingresos reales.</h2>
 
             <h3>Cálculo del Rendimiento Neto</h3>
@@ -869,14 +857,9 @@
             </div>
         </section>
 
-        <!-- Ad Slot 2: Intercalado previo a las FAQs -->
-        <div class="ad-slot no-print">
-            Banner AdSense - Slot 2<br>
-            <small style="font-weight:normal;">[Espacio reservado CLS=0]</small>
-        </div>
-
         <!-- Preguntas Frecuentes FAQs -->
-        <section class="card no-print">
+        <section class="card no-print"
+            style="margin-top: 3rem; padding: 2.5rem 2rem; box-shadow: none; border: 1px solid var(--border);">
             <h2 style="margin-top:0;">Preguntas Frecuentes (FAQ)</h2>
 
             <details>
