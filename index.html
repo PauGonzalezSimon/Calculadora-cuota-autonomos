@@ -13,24 +13,30 @@
         data-cfasync="false"></script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
         :root {
-            --primary: #0284c7;
-            --primary-hover: #0369a1;
-            --bg: #f1f5f9;
+            --primary: #1e3a8a;
+            /* Azul corporativo */
+            --primary-hover: #1e40af;
+            --action: #059669;
+            /* Verde para botón de acción */
+            --action-hover: #047857;
+            --bg: #f8fafc;
             --card: #ffffff;
             --text: #0f172a;
-            --muted: #64748b;
-            --border: #cbd5e1;
-            --success: #16a34a;
-            --success-bg: #dcfce7;
-            --radius: 0.75rem;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --success: #059669;
+            --success-bg: #d1fae5;
+            --radius: 0.5rem;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         body {
@@ -40,19 +46,45 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Header Corporativo */
+        .site-header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .site-header .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .site-header .logo span {
+            color: #93c5fd;
+            /* Azul más claro corporativo */
+        }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 1.5rem 1rem;
+            padding: 0 1rem 2rem;
         }
 
         h1 {
-            font-size: 1.75rem;
+            font-size: 1.6rem;
             font-weight: 800;
             text-align: center;
-            color: var(--primary);
+            color: var(--text);
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            letter-spacing: -0.025em;
         }
 
         h2 {
@@ -302,22 +334,24 @@
         }
 
         .btn-print {
-            background: var(--text);
+            background: var(--action);
             color: white;
             border: none;
-            padding: .75rem 1.5rem;
+            padding: .875rem 1.5rem;
             border-radius: .5rem;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.05rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: .5rem;
-            transition: background .2s;
+            transition: all .2s;
+            box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2);
         }
 
         .btn-print:hover {
-            background: #334155;
+            background: var(--action-hover);
+            transform: translateY(-1px);
         }
 
         /* Ad Slots (Web Vitals Optimization CLS=0) */
@@ -524,10 +558,21 @@
 
 <body>
 
+    <!-- Nuevo Header Corporativo -->
+    <header class="site-header no-print">
+        <div class="logo">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                </path>
+            </svg>
+            LibreFiscal<span>.es</span>
+        </div>
+    </header>
+
     <div class="container">
-        <header>
-            <h1>Calculadora de Cuota de Autónomos 2026 (Ingresos Reales)</h1>
-        </header>
+        <h1>Calculadora de Cuota de Autónomos 2026 (Ingresos Reales)</h1>
 
         <main class="card">
             <!-- Resumen solo visible al imprimir en PDF -->
@@ -663,7 +708,8 @@
                 La fórmula procesal estipulada es directa e impepinable: se trata de extraer la suma general de
                 <strong>(Ingresos - Gastos)</strong> - un porcentaje final para blindar la operación del <strong>7% de
                     gastos de difícil justificación</strong> (esta rebaja será de 3% de minoración para el marco
-                particular directriz o autónomo societario general).</p>
+                particular directriz o autónomo societario general).
+            </p>
 
             <h3>Tramos de Cotización 2026</h3>
             <p>Actuar siguiendo lo reflejado es la clave. Al tener cerrado tu rendimiento neto fiscal sobre la mesa, se

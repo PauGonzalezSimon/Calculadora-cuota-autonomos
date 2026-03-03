@@ -5,28 +5,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad | librefiscal.es</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <meta name="robots" content="noindex, nofollow">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary: #1e3a8a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --radius: 0.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .site-header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .site-header .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .site-header .logo span {
+            color: #93c5fd;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem 2rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted);
+        }
+
+        a.back-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a.back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Política de Privacidad</h1>
-    <p>En <strong>librefiscal.es</strong> estamos plenamente comprometidos con tu privacidad, y la gestión de la misma
-        es extremadamente sencilla: <strong>No recopilamos, no almacenamos ni enviamos ningún dato personal de nuestros
-            usuarios a servidores de terceros.</strong></p>
-    <p><strong>¿Cómo funciona el cálculo si no recopiláis datos?</strong></p>
-    <p>Todos los ingresos, gastos y selecciones que introduces en la calculadora de autónomos se procesan de forma
-        <strong>local</strong> en tu propio navegador web. Ninguno de esos datos económicos o financieros cruza internet
-        ni se guarda en ninguna base de datos bajo nuestro control o empresa. Tu rendimiento neto y cuota son procesados
-        de forma efímera durante tu visita y se descartan inmediatamente tras cerrar la ventana.</p>
-    <p><strong>Sobre el rastreo estadístico y publicidad publicitaria:</strong> Esta plataforma para sostener su
-        infraestructura se apoya en servicios externos de publicidad y métricas anonimizadas como Google AdSense, cuyas
-        prácticas de privacidad y almacenamiento de datos analíticos están detalladas y puedes consultar a detalle en
-        nuestra estricta Política de Cookies.</p>
-    <p>Tu navegación en librefiscal.es está garantizada operando bajo los principios de anonimato y máxima seguridad en
-        el ámbito de aplicación corporativo.</p>
-    <br>
-    <a href="index.html">← Volver a la Calculadora principal</a>
+    <header class="site-header">
+        <a href="index.html" class="logo">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                </path>
+            </svg>
+            LibreFiscal<span>.es</span>
+        </a>
+    </header>
+    <div class="container">
+        <div class="card">
+            <h1>Política de Privacidad</h1>
+            <p>En <strong>librefiscal.es</strong> estamos plenamente comprometidos con tu privacidad, y la gestión de la
+                misma
+                es extremadamente sencilla: <strong>No recopilamos, no almacenamos ni enviamos ningún dato personal de
+                    nuestros
+                    usuarios a servidores de terceros.</strong></p>
+            <p><strong>¿Cómo funciona el cálculo si no recopiláis datos?</strong></p>
+            <p>Todos los ingresos, gastos y selecciones que introduces en la calculadora de autónomos se procesan de
+                forma
+                <strong>local</strong> en tu propio navegador web. Ninguno de esos datos económicos o financieros cruza
+                internet
+                ni se guarda en ninguna base de datos bajo nuestro control o empresa. Tu rendimiento neto y cuota son
+                procesados
+                de forma efímera durante tu visita y se descartan inmediatamente tras cerrar la ventana.
+            </p>
+            <p><strong>Sobre el rastreo estadístico y publicidad publicitaria:</strong> Esta plataforma para sostener su
+                infraestructura se apoya en servicios externos de publicidad y métricas anonimizadas como Google
+                AdSense, cuyas
+                prácticas de privacidad y almacenamiento de datos analíticos están detalladas y puedes consultar a
+                detalle en
+                nuestra estricta Política de Cookies.</p>
+            <p>Tu navegación en librefiscal.es está garantizada operando bajo los principios de anonimato y máxima
+                seguridad en
+                el ámbito de aplicación corporativo.</p>
+            <a href="index.html" class="back-btn">← Volver a la Calculadora principal</a>
+        </div>
+    </div>
 </body>
 
 </html>
