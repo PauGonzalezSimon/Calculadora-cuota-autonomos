@@ -8,12 +8,10 @@
     <!-- Favicon Corporativo -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%231e3a8a' stroke-width='2' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'></path></svg>">
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800&display=swap"
-        rel="stylesheet">
+    <!-- Preload Fonts locales (Inter Reg, Montserrat Bold) -->
+    <link rel="preload" href="./fonts/font-0.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/font-5.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./fonts.css">
 
     <style>
         :root {
@@ -165,7 +163,7 @@
         <header class="site-header">
             <a href="index.html" class="logo">
                 <div class="logo-icon-wrapper">
-                    <img src="logo-icono.png" alt="">
+                    <img src="logo-icono.svg" alt="LibreFiscal.es">
                 </div>
                 <span>LibreFiscal<span class="logo-dot">.</span>es</span>
             </a>

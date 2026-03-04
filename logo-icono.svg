@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Coin -->
+  <circle cx="55" cy="65" r="45" fill="url(#gold)" stroke="#d97706" stroke-width="2" filter="url(#shadow)" />
+  <circle cx="55" cy="65" r="35" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4 4" />
+  
+  <!-- Dollar Symbol -->
+  <text x="55" y="80" font-family="Montserrat, Inter, sans-serif" font-weight="900" font-size="45" fill="#ffffff" text-anchor="middle" style="text-shadow: 1px 2px 3px rgba(0,0,0,0.2);">$</text>
+
+  <!-- Blue Arrow Base -->
+  <path d="M 30,80 L 55,55 L 75,70 L 105,35" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Blue Arrow Fill -->
+  <path d="M 30,80 L 55,55 L 75,70 L 105,35" fill="none" stroke="url(#blue)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)"/>
+  
+  <!-- Arrow Head -->
+  <polygon points="115,25 110,50 90,30" fill="url(#blue)" stroke="#ffffff" stroke-width="2" filter="url(#shadow)" />
+</svg>
