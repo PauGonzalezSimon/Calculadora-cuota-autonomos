@@ -12,13 +12,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800&display=swap');
 
         :root {
-            --primary: #1e3a8a;
-            --bg: #f8fafc;
+            --primary: #1e88e5;
+            /* Azul Vibrante Logo */
+            --primary-dark: #0b5394;
+            /* Azul Oscuro Libre */
+            --primary-hover: #1565c0;
+            --action: #f59e0b;
+            /* Dorado Moneda Logo */
+            --action-hover: #d97706;
+            --bg: #ffffff;
             --card: #ffffff;
-            --text: #0f172a;
+            --text: #1e293b;
             --muted: #475569;
             --border: #e2e8f0;
-            --radius: 0.5rem;
+            --success: #1e88e5;
+            --success-bg: #eff6ff;
+            --radius: 0.75rem;
         }
 
         * {
@@ -35,13 +44,19 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .site-header {
+        .header-wrapper {
+            position: relative;
             background-color: var(--primary);
             color: #ffffff;
+            padding-bottom: 4rem;
+            /* Adjust based on curve height */
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-header {
             padding: 1.25rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
         }
 
         .site-header .logo {
@@ -57,8 +72,20 @@
             color: white;
         }
 
-        .site-header .logo span {
-            color: #93c5fd;
+        .site-header .logo-libre {
+            color: white;
+        }
+
+        .site-header .logo-fiscal {
+            color: var(--action);
+        }
+
+        .site-header .logo-dot {
+            color: var(--action);
+        }
+
+        .site-header .logo-es {
+            color: white;
         }
 
         .container {
@@ -115,21 +142,67 @@
         a.back-btn:hover {
             text-decoration: underline;
         }
+
+        .header-curve {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .header-curve svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+            /* Adjust height as needed */
+        }
+
+        .header-curve .shape-fill {
+            fill: var(--bg);
+        }
     </style>
 </head>
 
 <body>
-    <header class="site-header">
-        <a href="index.html" class="logo">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                </path>
+    <!-- Nuevo Header Corporativo con curva -->
+    <div class="header-wrapper">
+        <header class="site-header">
+            <a href="index.html" class="logo">
+                <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="45" cy="45" r="24" fill="url(#goldGrad)" stroke="#d97706" stroke-width="1.5" />
+                    <circle cx="45" cy="45" r="19" fill="none" stroke="#d97706" stroke-width="1" opacity="0.5" />
+                    <text x="45" y="55" font-family="'Montserrat', sans-serif" font-size="28" font-weight="800"
+                        fill="#b45309" text-anchor="middle">$</text>
+                    <path d="M 5 65 C 35 95, 65 75, 82 45 L 94 45 L 82 15 L 65 25 C 50 60, 25 75, 5 65 Z"
+                        fill="url(#blueGrad)" />
+                    <defs>
+                        <linearGradient id="goldGrad" x1="21" y1="21" x2="69" y2="69" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#fdf6e3" />
+                            <stop offset="0.5" stop-color="#fcd34d" />
+                            <stop offset="1" stop-color="#d97706" />
+                        </linearGradient>
+                        <linearGradient id="blueGrad" x1="5" y1="85" x2="82" y2="15" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#0b5394" />
+                            <stop offset="1" stop-color="#1e88e5" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-libre">Libre</span><span class="logo-fiscal">Fiscal</span><span
+                    class="logo-dot">.</span><span class="logo-es">es</span>
+            </a>
+        </header>
+        <div class="header-curve">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
             </svg>
-            LibreFiscal<span>.es</span>
-        </a>
-    </header>
+        </div>
+    </div>
     <div class="container">
         <div class="card">
             <h1>Política de Cookies</h1>
