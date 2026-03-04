@@ -20,22 +20,24 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800&display=swap');
 
         :root {
-            --primary: #1e88e5;
+            --primary: #1d4ed8;
             /* Azul Vibrante Logo */
-            --primary-dark: #0b5394;
-            /* Azul Oscuro Libre */
-            --primary-hover: #1565c0;
+            --primary-hover: #1e40af;
             --action: #f59e0b;
             /* Dorado Moneda Logo */
             --action-hover: #d97706;
             --bg: #ffffff;
+            /* Fondo Blanco Puro */
             --card: #ffffff;
-            --text: #1e293b;
+            --text: #0f172a;
+            /* Azul/Gris Muy Oscuro */
             --muted: #475569;
             --border: #e2e8f0;
-            --success: #1e88e5;
+            --success: #1d4ed8;
+            /* Ahora usamos el azul vibrante central en vez de verde standard */
             --success-bg: #eff6ff;
             --radius: 0.75rem;
+            /* Bordes ligeramente más modernos */
         }
 
         * {
@@ -55,6 +57,7 @@
         /* Header Corporativo con separador curvo */
         .header-wrapper {
             background-color: var(--primary);
+            color: #ffffff;
             margin-bottom: 2rem;
             position: relative;
         }
@@ -72,7 +75,6 @@
             overflow: hidden;
             line-height: 0;
             transform: rotate(180deg);
-            z-index: 0;
         }
 
         .header-curve svg {
@@ -86,20 +88,20 @@
         }
 
         .site-header .logo {
-            display: inline-flex;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            position: relative;
-            z-index: 1;
+            gap: 0.5rem;
         }
 
-        .site-header .logo-img {
-            max-height: 60px;
-            width: auto;
+        .site-header .logo span {
+            color: var(--action);
+            /* Dorado Logo */
         }
-
-
 
         .container {
             max-width: 900px;
@@ -586,9 +588,15 @@
     <!-- Nuevo Header Corporativo con curva -->
     <div class="header-wrapper no-print">
         <header class="site-header">
-            <a href="index.html" class="logo">
-                <img src="logolibrefiscal.png" alt="LibreFiscal.es" class="logo-img">
-            </a>
+            <div class="logo">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                    </path>
+                </svg>
+                LibreFiscal<span>.es</span>
+            </div>
         </header>
         <div class="header-curve">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
