@@ -89,16 +89,41 @@
 
         .site-header .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.85rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: -0.025em;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 15px;
+            /* Margen solicitado (10px - 15px) */
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            /* Texto puro blanco para contraste */
         }
 
-        .site-header .logo span {
+        .logo-icon-wrapper {
+            height: 48px;
+            /* Proporcional a la L mayúscula */
+            width: 55px;
+            /* Cortar imagen para mostrar solo la moneda y flecha */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .logo-icon-wrapper img {
+            height: 100%;
+            width: auto;
+            max-width: none;
+            object-fit: cover;
+            object-position: left center;
+        }
+
+        .site-header .logo .logo-dot {
             color: var(--action);
             /* Dorado Logo */
         }
@@ -588,15 +613,12 @@
     <!-- Nuevo Header Corporativo con curva -->
     <div class="header-wrapper no-print">
         <header class="site-header">
-            <div class="logo">
-                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                    </path>
-                </svg>
-                LibreFiscal<span>.es</span>
-            </div>
+            <a href="index.html" class="logo">
+                <div class="logo-icon-wrapper">
+                    <img src="logo-icono.png" alt="">
+                </div>
+                <span>LibreFiscal<span class="logo-dot">.</span>es</span>
+            </a>
         </header>
         <div class="header-curve">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
