@@ -44,124 +44,51 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Header Corporativo con separador curvo */
         .header-wrapper {
-            position: relative;
             background-color: var(--primary);
-            color: #ffffff;
-            padding-bottom: 4rem;
-            /* Adjust based on curve height */
             margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .site-header {
-            padding: 1.25rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
-        }
-
-        .site-header .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.85rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: white;
-        }
-
-        .site-header .logo-libre {
-            color: white;
-        }
-
-        .site-header .logo-fiscal {
-            color: var(--action);
-        }
-
-        .site-header .logo-dot {
-            color: var(--action);
-        }
-
-        .site-header .logo-es {
-            color: white;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1rem 2rem;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
-            border: 1px solid var(--border);
-        }
-
-        h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.025em;
-        }
-
-        h3 {
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--muted);
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--muted);
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        a.back-btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        a.back-btn:hover {
-            text-decoration: underline;
         }
 
         .header-curve {
             position: absolute;
-            bottom: 0;
+            bottom: -1px;
             left: 0;
             width: 100%;
             overflow: hidden;
             line-height: 0;
+            transform: rotate(180deg);
+            z-index: 0;
         }
 
         .header-curve svg {
-            position: relative;
             display: block;
-            width: calc(100% + 1.3px);
-            height: 60px;
-            /* Adjust height as needed */
+            width: calc(150% + 1.3px);
+            height: 40px;
         }
 
         .header-curve .shape-fill {
             fill: var(--bg);
+        }
+
+        .site-header .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-header .logo-img {
+            max-height: 60px;
+            width: auto;
         }
     </style>
 </head>
@@ -171,27 +98,7 @@
     <div class="header-wrapper">
         <header class="site-header">
             <a href="index.html" class="logo">
-                <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="45" cy="45" r="24" fill="url(#goldGrad)" stroke="#d97706" stroke-width="1.5" />
-                    <circle cx="45" cy="45" r="19" fill="none" stroke="#d97706" stroke-width="1" opacity="0.5" />
-                    <text x="45" y="55" font-family="'Montserrat', sans-serif" font-size="28" font-weight="800"
-                        fill="#b45309" text-anchor="middle">$</text>
-                    <path d="M 5 65 C 35 95, 65 75, 82 45 L 94 45 L 82 15 L 65 25 C 50 60, 25 75, 5 65 Z"
-                        fill="url(#blueGrad)" />
-                    <defs>
-                        <linearGradient id="goldGrad" x1="21" y1="21" x2="69" y2="69" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#fdf6e3" />
-                            <stop offset="0.5" stop-color="#fcd34d" />
-                            <stop offset="1" stop-color="#d97706" />
-                        </linearGradient>
-                        <linearGradient id="blueGrad" x1="5" y1="85" x2="82" y2="15" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#0b5394" />
-                            <stop offset="1" stop-color="#1e88e5" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <span class="logo-libre">Libre</span><span class="logo-fiscal">Fiscal</span><span
-                    class="logo-dot">.</span><span class="logo-es">es</span>
+                <img src="logolibrefiscal.png" alt="LibreFiscal.es" class="logo-img">
             </a>
         </header>
         <div class="header-curve">
