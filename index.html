@@ -642,6 +642,10 @@
             window.addEventListener('mousemove', loadAds, { once: true, passive: true });
             window.addEventListener('touchstart', loadAds, { once: true, passive: true });
         });
+        // Service Worker: caché larga duración + 404 personalizado
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(function () { });
+        }
     </script>
 </head>
 
