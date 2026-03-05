@@ -18,11 +18,26 @@
 
     <!-- Preload fuentes para romper cadena crítica -->
         
-    <!-- Google Fonts CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload para LCP estricto -->
+    <link rel="preload" href="/fonts/font-0.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/font-5.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(/fonts/font-0.woff2) format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url(/fonts/font-5.woff2) format('woff2');
+        }
+
         :root {
             --primary: #1d4ed8;
             /* Azul Vibrante Logo */
@@ -635,9 +650,7 @@
     <div class="header-wrapper no-print">
         <header class="site-header">
             <a href="index.html" class="logo">
-                <div class="logo-icon-wrapper" role="img" aria-label="LibreFiscal.es">
-                    <img src="logo-icono.webp" alt="LibreFiscal.es" width="48" height="48">
-                </div>
+                <img src="logo-icono.webp" alt="LibreFiscal.es" class="logo-icon-wrapper" width="48" height="48">
                 <span>LibreFiscal<span class="logo-dot">.</span>es</span>
             </a>
         </header>
@@ -652,7 +665,7 @@
     </div>
 
     <div class="container">
-        <h1>Calculadora de Cuota de Autónomos 2026 (Ingresos Reales)</h1>
+        <h1 style="font-size: 1.6rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.025em; font-family: 'Montserrat', system-ui, sans-serif;">Calculadora de Cuota de Autónomos 2026 (Ingresos Reales)</h1>
 
         <main class="card">
             <!-- Resumen solo visible al imprimir en PDF -->
@@ -709,7 +722,7 @@
                     </div>
 
                     <!-- CCAA Selector (Oculto) -->
-                    <div class="col-full" id="ccaa_container">
+                    <div id="ccaa_container" style="grid-column: 1/-1;">
                         <label for="ccaa">Comunidad Autónoma (Aplica bonificación Cuota Cero)</label>
                         <select id="ccaa" name="ccaa" class="form-control" onchange="calcularTodo()">
                             <option value="otra">Selecciona tu Comunidad Autónoma</option>
