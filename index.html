@@ -299,16 +299,25 @@
         /* Results */
         .results {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
+            /* Mobile-first: 1 column */
             gap: 1rem;
             margin-top: 1.5rem;
             padding-top: 1.5rem;
             border-top: 1px dashed var(--border);
         }
 
-        @media(min-width:640px) {
+        @media(min-width:480px) {
+            .results {
+                grid-template-columns: 1fr 1fr;
+                /* Two columns for tablet-small */
+            }
+        }
+
+        @media(min-width:800px) {
             .results {
                 grid-template-columns: repeat(4, 1fr);
+                /* Four columns for desktop */
             }
         }
 
@@ -316,26 +325,37 @@
             background: #f8fafc;
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.5rem;
+            padding: 1rem;
+            /* Reduced padding for mobile */
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 0.2s ease;
-        }
-
-        .res-box:hover {
-            transform: translateY(-2px);
-        }
-
-        .res-box.highlight {
-            background: var(--success-bg);
-            border-color: var(--success);
-            grid-column: 1/-1;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         @media(min-width:640px) {
+            .res-box {
+                padding: 1.5rem;
+            }
+        }
+
+        .res-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .res-box.highlight {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-color: var(--success);
+            grid-column: 1/-1;
+            border-width: 2px;
+        }
+
+        @media(min-width:800px) {
             .res-box.highlight {
                 grid-column: span 1;
             }
@@ -355,15 +375,28 @@
         }
 
         .res-val {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
+            /* Slightly smaller for mobile */
             font-weight: 800;
             color: var(--text);
             line-height: 1.1;
         }
 
+        @media(min-width:640px) {
+            .res-val {
+                font-size: 1.4rem;
+            }
+        }
+
         .res-box.highlight .res-val {
             color: var(--success);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+        }
+
+        @media(min-width:640px) {
+            .res-box.highlight .res-val {
+                font-size: 1.75rem;
+            }
         }
 
         /* Tooltips */
