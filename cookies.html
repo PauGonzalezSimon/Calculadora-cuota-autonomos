@@ -19,13 +19,14 @@
         rel="stylesheet">
     <style>
         :root {
-            --primary: #1e3a8a;
-            --bg: #f8fafc;
+            --primary: #1d4ed8;
+            /* Azul Vibrante Logo */
+            --bg: #ffffff;
             --card: #ffffff;
             --text: #0f172a;
             --muted: #475569;
             --border: #e2e8f0;
-            --radius: 0.5rem;
+            --radius: 0.75rem;
         }
 
         * {
@@ -42,18 +43,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .site-header {
-            background-color: var(--primary);
-            color: #ffffff;
-            padding: 1.25rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
         /* Header Corporativo con separador curvo */
         .header-wrapper {
             background-color: var(--primary);
+            color: #ffffff;
             margin-bottom: 2rem;
             position: relative;
         }
@@ -61,6 +54,26 @@
         .site-header {
             padding: 1.5rem 1rem;
             text-align: center;
+        }
+
+        .header-curve {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .header-curve svg {
+            display: block;
+            width: calc(150% + 1.3px);
+            height: 40px;
+        }
+
+        .header-curve .shape-fill {
+            fill: var(--bg);
         }
 
         .site-header .logo {
