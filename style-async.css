@@ -9,6 +9,17 @@
             font-weight: 600;
             display: none;
             animation: fadeIn .3s ease;
+            max-width: 100%;
+        }
+
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         /* Results */
