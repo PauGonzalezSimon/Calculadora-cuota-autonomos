@@ -267,44 +267,7 @@
                 transform: translateY(0);
             }
         }
-    </style>
-
-    <!-- [RE-DEPLOY-FORCE-V5] -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebApplication",
-          "name": "Calculadora Cuota AutÃ³nomos 2026",
-          "description": "Calcula tu cuota de autÃ³nomos de 2026 con el nuevo sistema de ingresos reales. Descubre si tienes Cuota Cero, tu IRPF exacto y tu sueldo neto real.",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All"
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Â¿QuÃ© es la Tarifa Plana en 2026 y la Cuota Cero?",
-              "acceptedAnswer": {"@type": "Answer", "text": "La Tarifa Plana es una cuota estatal reducida de 80â‚¬ mensuales para nuevos autÃ³nomos durante su primer aÃ±o de actividad. La 'Cuota Cero' ocurre cuando ciertas Comunidades AutÃ³nomas bonifican el 100% de este importe, resultando en un coste real de 0â‚¬ para el emprendedor."}
-            },
-            {
-              "@type": "Question",
-              "name": "Â¿CÃ³mo funciona la regularizaciÃ³n de cuotas a final de aÃ±o?",
-              "acceptedAnswer": {"@type": "Answer", "text": "Al aÃ±o siguiente, cuando presentas la declaraciÃ³n de la RENTA, la Seguridad Social cruza datos con Hacienda. Si cotizaste mensualmente por un tramo inferior a tus ingresos o beneficios reales, te exigirÃ¡n abonar la diferencia. Si cotizaste de mÃ¡s, te devolverÃ¡n de oficio el exceso abonado."}
-            },
-            {
-              "@type": "Question",
-              "name": "Â¿CuÃ¡ndo puedo cambiar de tramo de cotizaciÃ³n?",
-              "acceptedAnswer": {"@type": "Answer", "text": "La TesorerÃ­a habilita hasta 6 plazos anuales (cada dos meses) para cambiar voluntariamente la base de cotizaciÃ³n a travÃ©s del portal electrÃ³nico Importass, permitiÃ©ndote adaptar la cuota a tus ingresos en tiempo real."}
-            }
-          ]
-        }
-      ]
-    }
-    </script>
-    <style>
+    
         /* Alerta PÃ©rdidas */
         .alert-danger {
             background: #fef2f2;
@@ -622,6 +585,42 @@
             }
         }
     </style>
+<!-- [RE-DEPLOY-FORCE-V5] -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Calculadora Cuota AutÃ³nomos 2026",
+          "description": "Calcula tu cuota de autÃ³nomos de 2026 con el nuevo sistema de ingresos reales. Descubre si tienes Cuota Cero, tu IRPF exacto y tu sueldo neto real.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Â¿QuÃ© es la Tarifa Plana en 2026 y la Cuota Cero?",
+              "acceptedAnswer": {"@type": "Answer", "text": "La Tarifa Plana es una cuota estatal reducida de 80â‚¬ mensuales para nuevos autÃ³nomos durante su primer aÃ±o de actividad. La 'Cuota Cero' ocurre cuando ciertas Comunidades AutÃ³nomas bonifican el 100% de este importe, resultando en un coste real de 0â‚¬ para el emprendedor."}
+            },
+            {
+              "@type": "Question",
+              "name": "Â¿CÃ³mo funciona la regularizaciÃ³n de cuotas a final de aÃ±o?",
+              "acceptedAnswer": {"@type": "Answer", "text": "Al aÃ±o siguiente, cuando presentas la declaraciÃ³n de la RENTA, la Seguridad Social cruza datos con Hacienda. Si cotizaste mensualmente por un tramo inferior a tus ingresos o beneficios reales, te exigirÃ¡n abonar la diferencia. Si cotizaste de mÃ¡s, te devolverÃ¡n de oficio el exceso abonado."}
+            },
+            {
+              "@type": "Question",
+              "name": "Â¿CuÃ¡ndo puedo cambiar de tramo de cotizaciÃ³n?",
+              "acceptedAnswer": {"@type": "Answer", "text": "La TesorerÃ­a habilita hasta 6 plazos anuales (cada dos meses) para cambiar voluntariamente la base de cotizaciÃ³n a travÃ©s del portal electrÃ³nico Importass, permitiÃ©ndote adaptar la cuota a tus ingresos en tiempo real."}
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
 
     <!-- Lazy Load AdSense/CMP para PageSpeed 100/100 -->
     <script>
@@ -650,8 +649,8 @@
     <!-- Nuevo Header Corporativo con curva -->
     <div class="header-wrapper no-print">
         <header class="site-header">
-            <a href="index.html" class="logo">
-                <img src="logo-icono.webp" alt="" class="logo-icon-wrapper" width="48" height="48" fetchpriority="high">
+            <a href="/" class="logo">
+                <img src="/logo-icono.webp" alt="" class="logo-icon-wrapper" width="48" height="48" fetchpriority="high">
                 <span>LibreFiscal<span class="logo-dot">.</span>es</span>
             </a>
         </header>
@@ -1049,13 +1048,13 @@
                 style="text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 2rem;"
                 class="no-print">
                 <p>
-                    <a href="aviso-legal.html"
+                    <a href="/aviso-legal.html"
                         style="color: var(--primary); text-decoration: none; margin: 0 0.5rem; font-weight: 600;">Aviso
                         Legal</a> |
-                    <a href="privacidad.html"
+                    <a href="/privacidad.html"
                         style="color: var(--primary); text-decoration: none; margin: 0 0.5rem; font-weight: 600;">PolÃ­tica
                         de Privacidad</a> |
-                    <a href="cookies.html"
+                    <a href="/cookies.html"
                         style="color: var(--primary); text-decoration: none; margin: 0 0.5rem; font-weight: 600;">PolÃ­tica
                         de Cookies</a>
                 </p>
@@ -1273,4 +1272,3 @@
 </html>
 
 
-``.
