@@ -19,13 +19,12 @@
         rel="stylesheet">
     <style>
         :root {
-            --primary: #1d4ed8;
-            /* Azul Vibrante Logo */
-            --bg: #ffffff;
-            --card: #ffffff;
-            --text: #0f172a;
-            --muted: #475569;
-            --border: #e2e8f0;
+            --primary: #2563EB;
+            --bg: #0B0F19;
+            --card: #151E2D;
+            --text: #FFFFFF;
+            --muted: #8B949E;
+            --border: #2D3748;
             --radius: 0.75rem;
         }
 
@@ -45,7 +44,8 @@
 
         /* Header Corporativo con separador curvo */
         .header-wrapper {
-            background-color: var(--primary);
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
             color: #ffffff;
             margin-bottom: 2rem;
             position: relative;
@@ -57,13 +57,7 @@
         }
 
         .header-curve {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
+            display: none;
         }
 
         .header-curve svg {
